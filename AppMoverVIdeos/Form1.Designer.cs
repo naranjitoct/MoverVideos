@@ -28,48 +28,49 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
-            button1 = new Button();
+            txtRoot = new TextBox();
+            btnBrowseRoot = new Button();
             label1 = new Label();
             label2 = new Label();
-            textBox2 = new TextBox();
-            comboBox1 = new ComboBox();
+            txtDest = new TextBox();
+            cmbMode = new ComboBox();
             label3 = new Label();
             label4 = new Label();
-            comboBox2 = new ComboBox();
+            cmbAction = new ComboBox();
             label5 = new Label();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            checkBox1 = new CheckBox();
-            checkBox2 = new CheckBox();
-            checkBox3 = new CheckBox();
-            checkBox4 = new CheckBox();
-            checkBox5 = new CheckBox();
-            checkBox6 = new CheckBox();
-            checkBox7 = new CheckBox();
-            checkBox8 = new CheckBox();
-            checkBox11 = new CheckBox();
-            button2 = new Button();
-            label6 = new Label();
-            flowLayoutPanel1.SuspendLayout();
+            pnlExts = new FlowLayoutPanel();
+            chkExtMp4 = new CheckBox();
+            chkExtM4v = new CheckBox();
+            chkExtMov = new CheckBox();
+            chkExtAvi = new CheckBox();
+            chkExtMkv = new CheckBox();
+            chkExtWmv = new CheckBox();
+            chkExtFlv = new CheckBox();
+            chkExtWebm = new CheckBox();
+            chkExtM2ts = new CheckBox();
+            chkAllExts = new CheckBox();
+            btnRun = new Button();
+            lblStatus = new Label();
+            chkExt3gp = new CheckBox();
+            pnlExts.SuspendLayout();
             SuspendLayout();
             // 
-            // textBox1
+            // txtRoot
             // 
-            textBox1.Location = new Point(244, 19);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(374, 23);
-            textBox1.TabIndex = 0;
-            textBox1.Tag = "txtRoot";
+            txtRoot.Location = new Point(244, 19);
+            txtRoot.Name = "txtRoot";
+            txtRoot.Size = new Size(374, 23);
+            txtRoot.TabIndex = 0;
             // 
-            // button1
+            // btnBrowseRoot
             // 
-            button1.Location = new Point(624, 19);
-            button1.Name = "button1";
-            button1.Size = new Size(36, 23);
-            button1.TabIndex = 1;
-            button1.Text = "...";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnBrowseRoot.Location = new Point(624, 19);
+            btnBrowseRoot.Name = "btnBrowseRoot";
+            btnBrowseRoot.Size = new Size(36, 23);
+            btnBrowseRoot.TabIndex = 1;
+            btnBrowseRoot.Text = "...";
+            btnBrowseRoot.UseVisualStyleBackColor = true;
+            btnBrowseRoot.Click += btnBrowseRoot_Click;
             // 
             // label1
             // 
@@ -89,24 +90,22 @@
             label2.TabIndex = 5;
             label2.Text = "Nombre Carpeta destino :";
             // 
-            // textBox2
+            // txtDest
             // 
-            textBox2.Location = new Point(244, 57);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(374, 23);
-            textBox2.TabIndex = 3;
-            textBox2.Tag = "txtDest";
-            textBox2.Text = "00_SOLO_VIDEOS";
+            txtDest.Location = new Point(244, 57);
+            txtDest.Name = "txtDest";
+            txtDest.Size = new Size(374, 23);
+            txtDest.TabIndex = 3;
+            txtDest.Text = "00_SOLO_VIDEOS";
             // 
-            // comboBox1
+            // cmbMode
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Ejecutar (real)", "Simular (dry-run)" });
-            comboBox1.Location = new Point(57, 99);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 23);
-            comboBox1.TabIndex = 6;
-            comboBox1.Tag = "cmbMode";
+            cmbMode.FormattingEnabled = true;
+            cmbMode.Items.AddRange(new object[] { "Ejecutar (real)", "Simular (dry-run)" });
+            cmbMode.Location = new Point(57, 99);
+            cmbMode.Name = "cmbMode";
+            cmbMode.Size = new Size(121, 23);
+            cmbMode.TabIndex = 6;
             // 
             // label3
             // 
@@ -126,15 +125,14 @@
             label4.TabIndex = 9;
             label4.Text = "Acción";
             // 
-            // comboBox2
+            // cmbAction
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Items.AddRange(new object[] { "Mover", "Copiar" });
-            comboBox2.Location = new Point(57, 137);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(121, 23);
-            comboBox2.TabIndex = 8;
-            comboBox2.Tag = "cmbAction";
+            cmbAction.FormattingEnabled = true;
+            cmbAction.Items.AddRange(new object[] { "Mover", "Copiar" });
+            cmbAction.Location = new Point(57, 137);
+            cmbAction.Name = "cmbAction";
+            cmbAction.Size = new Size(121, 23);
+            cmbAction.TabIndex = 8;
             // 
             // label5
             // 
@@ -145,195 +143,211 @@
             label5.TabIndex = 10;
             label5.Text = "Extensiones:";
             // 
-            // flowLayoutPanel1
+            // pnlExts
             // 
-            flowLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            flowLayoutPanel1.AutoSize = true;
-            flowLayoutPanel1.Controls.Add(checkBox1);
-            flowLayoutPanel1.Controls.Add(checkBox2);
-            flowLayoutPanel1.Controls.Add(checkBox3);
-            flowLayoutPanel1.Controls.Add(checkBox4);
-            flowLayoutPanel1.Controls.Add(checkBox5);
-            flowLayoutPanel1.Controls.Add(checkBox6);
-            flowLayoutPanel1.Controls.Add(checkBox7);
-            flowLayoutPanel1.Controls.Add(checkBox8);
-            flowLayoutPanel1.Location = new Point(27, 204);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(239, 50);
-            flowLayoutPanel1.TabIndex = 11;
-            flowLayoutPanel1.Tag = "pnlExts";
+            pnlExts.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pnlExts.AutoSize = true;
+            pnlExts.Controls.Add(chkExtMp4);
+            pnlExts.Controls.Add(chkExtM4v);
+            pnlExts.Controls.Add(chkExtMov);
+            pnlExts.Controls.Add(chkExtAvi);
+            pnlExts.Controls.Add(chkExtMkv);
+            pnlExts.Controls.Add(chkExtWmv);
+            pnlExts.Controls.Add(chkExtFlv);
+            pnlExts.Controls.Add(chkExtWebm);
+            pnlExts.Controls.Add(chkExtM2ts);
+            pnlExts.Controls.Add(chkExt3gp);
+            pnlExts.Location = new Point(27, 204);
+            pnlExts.Name = "pnlExts";
+            pnlExts.Size = new Size(239, 75);
+            pnlExts.TabIndex = 11;
             // 
-            // checkBox1
+            // chkExtMp4
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(3, 3);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(53, 19);
-            checkBox1.TabIndex = 0;
-            checkBox1.Tag = "cbmp4";
-            checkBox1.Text = ".mp4";
-            checkBox1.UseVisualStyleBackColor = true;
-            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
+            chkExtMp4.AutoSize = true;
+            chkExtMp4.Location = new Point(3, 3);
+            chkExtMp4.Name = "chkExtMp4";
+            chkExtMp4.Size = new Size(53, 19);
+            chkExtMp4.TabIndex = 0;
+            chkExtMp4.Text = ".mp4";
+            chkExtMp4.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // chkExtM4v
             // 
-            checkBox2.AutoSize = true;
-            checkBox2.Location = new Point(62, 3);
-            checkBox2.Name = "checkBox2";
-            checkBox2.Size = new Size(52, 19);
-            checkBox2.TabIndex = 1;
-            checkBox2.Tag = "cbm4v";
-            checkBox2.Text = ".m4v";
-            checkBox2.UseVisualStyleBackColor = true;
+            chkExtM4v.AutoSize = true;
+            chkExtM4v.Location = new Point(62, 3);
+            chkExtM4v.Name = "chkExtM4v";
+            chkExtM4v.Size = new Size(52, 19);
+            chkExtM4v.TabIndex = 1;
+            chkExtM4v.Text = ".m4v";
+            chkExtM4v.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // chkExtMov
             // 
-            checkBox3.AutoSize = true;
-            checkBox3.Location = new Point(120, 3);
-            checkBox3.Name = "checkBox3";
-            checkBox3.Size = new Size(53, 19);
-            checkBox3.TabIndex = 2;
-            checkBox3.Tag = "cbmov";
-            checkBox3.Text = ".mov";
-            checkBox3.UseVisualStyleBackColor = true;
+            chkExtMov.AutoSize = true;
+            chkExtMov.Location = new Point(120, 3);
+            chkExtMov.Name = "chkExtMov";
+            chkExtMov.Size = new Size(53, 19);
+            chkExtMov.TabIndex = 2;
+            chkExtMov.Text = ".mov";
+            chkExtMov.UseVisualStyleBackColor = true;
             // 
-            // checkBox4
+            // chkExtAvi
             // 
-            checkBox4.AutoSize = true;
-            checkBox4.Location = new Point(179, 3);
-            checkBox4.Name = "checkBox4";
-            checkBox4.Size = new Size(44, 19);
-            checkBox4.TabIndex = 3;
-            checkBox4.Tag = "cbavi";
-            checkBox4.Text = ".avi";
-            checkBox4.UseVisualStyleBackColor = true;
+            chkExtAvi.AutoSize = true;
+            chkExtAvi.Location = new Point(179, 3);
+            chkExtAvi.Name = "chkExtAvi";
+            chkExtAvi.Size = new Size(44, 19);
+            chkExtAvi.TabIndex = 3;
+            chkExtAvi.Text = ".avi";
+            chkExtAvi.UseVisualStyleBackColor = true;
             // 
-            // checkBox5
+            // chkExtMkv
             // 
-            checkBox5.AutoSize = true;
-            checkBox5.Location = new Point(3, 28);
-            checkBox5.Name = "checkBox5";
-            checkBox5.Size = new Size(52, 19);
-            checkBox5.TabIndex = 4;
-            checkBox5.Tag = "cbmkv";
-            checkBox5.Text = ".mkv";
-            checkBox5.UseVisualStyleBackColor = true;
+            chkExtMkv.AutoSize = true;
+            chkExtMkv.Location = new Point(3, 28);
+            chkExtMkv.Name = "chkExtMkv";
+            chkExtMkv.Size = new Size(52, 19);
+            chkExtMkv.TabIndex = 4;
+            chkExtMkv.Text = ".mkv";
+            chkExtMkv.UseVisualStyleBackColor = true;
             // 
-            // checkBox6
+            // chkExtWmv
             // 
-            checkBox6.AutoSize = true;
-            checkBox6.Location = new Point(61, 28);
-            checkBox6.Name = "checkBox6";
-            checkBox6.Size = new Size(55, 19);
-            checkBox6.TabIndex = 5;
-            checkBox6.Tag = "cbwmv";
-            checkBox6.Text = ".wmv";
-            checkBox6.UseVisualStyleBackColor = true;
+            chkExtWmv.AutoSize = true;
+            chkExtWmv.Location = new Point(61, 28);
+            chkExtWmv.Name = "chkExtWmv";
+            chkExtWmv.Size = new Size(55, 19);
+            chkExtWmv.TabIndex = 5;
+            chkExtWmv.Text = ".wmv";
+            chkExtWmv.UseVisualStyleBackColor = true;
             // 
-            // checkBox7
+            // chkExtFlv
             // 
-            checkBox7.AutoSize = true;
-            checkBox7.Location = new Point(122, 28);
-            checkBox7.Name = "checkBox7";
-            checkBox7.Size = new Size(42, 19);
-            checkBox7.TabIndex = 6;
-            checkBox7.Tag = "cbflv";
-            checkBox7.Text = ".flv";
-            checkBox7.UseVisualStyleBackColor = true;
+            chkExtFlv.AutoSize = true;
+            chkExtFlv.Location = new Point(122, 28);
+            chkExtFlv.Name = "chkExtFlv";
+            chkExtFlv.Size = new Size(42, 19);
+            chkExtFlv.TabIndex = 6;
+            chkExtFlv.Text = ".flv";
+            chkExtFlv.UseVisualStyleBackColor = true;
             // 
-            // checkBox8
+            // chkExtWebm
             // 
-            checkBox8.AutoSize = true;
-            checkBox8.Location = new Point(170, 28);
-            checkBox8.Name = "checkBox8";
-            checkBox8.Size = new Size(62, 19);
-            checkBox8.TabIndex = 7;
-            checkBox8.Tag = "cbmp4";
-            checkBox8.Text = ".webm";
-            checkBox8.UseVisualStyleBackColor = true;
+            chkExtWebm.AutoSize = true;
+            chkExtWebm.Location = new Point(170, 28);
+            chkExtWebm.Name = "chkExtWebm";
+            chkExtWebm.Size = new Size(62, 19);
+            chkExtWebm.TabIndex = 7;
+            chkExtWebm.Text = ".webm";
+            chkExtWebm.UseVisualStyleBackColor = true;
             // 
-            // checkBox11
+            // chkExtM2ts
             // 
-            checkBox11.AutoSize = true;
-            checkBox11.Location = new Point(115, 179);
-            checkBox11.Name = "checkBox11";
-            checkBox11.Size = new Size(118, 19);
-            checkBox11.TabIndex = 12;
-            checkBox11.Tag = "chkAllExts";
-            checkBox11.Text = "Seleccionar todas";
-            checkBox11.UseVisualStyleBackColor = true;
+            chkExtM2ts.AutoSize = true;
+            chkExtM2ts.Location = new Point(3, 53);
+            chkExtM2ts.Name = "chkExtM2ts";
+            chkExtM2ts.Size = new Size(55, 19);
+            chkExtM2ts.TabIndex = 8;
+            chkExtM2ts.Tag = "chkExtM2ts";
+            chkExtM2ts.Text = ".m2ts";
+            chkExtM2ts.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // chkAllExts
             // 
-            button2.Location = new Point(332, 207);
-            button2.Name = "button2";
-            button2.Size = new Size(109, 48);
-            button2.TabIndex = 13;
-            button2.Tag = "btnRun";
-            button2.Text = "EJECUTAR";
-            button2.UseVisualStyleBackColor = true;
+            chkAllExts.AutoSize = true;
+            chkAllExts.Location = new Point(115, 179);
+            chkAllExts.Name = "chkAllExts";
+            chkAllExts.Size = new Size(118, 19);
+            chkAllExts.TabIndex = 12;
+            chkAllExts.Text = "Seleccionar todas";
+            chkAllExts.UseVisualStyleBackColor = true;
+            chkAllExts.CheckedChanged += chkAllExts_CheckedChanged;
             // 
-            // label6
+            // btnRun
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(474, 224);
-            label6.Name = "label6";
-            label6.Size = new Size(53, 15);
-            label6.TabIndex = 14;
-            label6.Tag = "lblStatus";
-            label6.Text = "ESTADO:";
+            btnRun.Location = new Point(325, 99);
+            btnRun.Name = "btnRun";
+            btnRun.Size = new Size(109, 48);
+            btnRun.TabIndex = 13;
+            btnRun.Text = "EJECUTAR";
+            btnRun.UseVisualStyleBackColor = true;
+            btnRun.Click += btnRun_Click;
+            // 
+            // lblStatus
+            // 
+            lblStatus.Location = new Point(282, 161);
+            lblStatus.Name = "lblStatus";
+            lblStatus.Size = new Size(477, 65);
+            lblStatus.TabIndex = 14;
+            lblStatus.Text = "ESTADO:";
+            lblStatus.Click += lblStatus_Click;
+            // 
+            // chkExt3gp
+            // 
+            chkExt3gp.AutoSize = true;
+            chkExt3gp.Location = new Point(64, 53);
+            chkExt3gp.Name = "chkExt3gp";
+            chkExt3gp.Size = new Size(49, 19);
+            chkExt3gp.TabIndex = 9;
+            chkExt3gp.Tag = "chkExt3gp";
+            chkExt3gp.Text = ".3gp";
+            chkExt3gp.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(771, 290);
-            Controls.Add(label6);
-            Controls.Add(button2);
-            Controls.Add(checkBox11);
-            Controls.Add(flowLayoutPanel1);
+            Controls.Add(lblStatus);
+            Controls.Add(btnRun);
+            Controls.Add(chkAllExts);
+            Controls.Add(pnlExts);
             Controls.Add(label5);
             Controls.Add(label4);
-            Controls.Add(comboBox2);
+            Controls.Add(cmbAction);
             Controls.Add(label3);
-            Controls.Add(comboBox1);
+            Controls.Add(cmbMode);
             Controls.Add(label2);
-            Controls.Add(textBox2);
+            Controls.Add(txtDest);
             Controls.Add(label1);
-            Controls.Add(button1);
-            Controls.Add(textBox1);
+            Controls.Add(btnBrowseRoot);
+            Controls.Add(txtRoot);
             Name = "Form1";
-            Text = "Form1";
+            Text = "MENU PRINCIPAL";
             Load += Form1_Load;
-            flowLayoutPanel1.ResumeLayout(false);
-            flowLayoutPanel1.PerformLayout();
+            pnlExts.ResumeLayout(false);
+            pnlExts.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private TextBox textBox1;
-        private Button button1;
+        private TextBox txtRoot;
+        private Button btnBrowseRoot;
         private Label label1;
         private Label label2;
-        private TextBox textBox2;
-        private ComboBox comboBox1;
+        private TextBox txtDest;
+        private ComboBox cmbMode;
         private Label label3;
         private Label label4;
-        private ComboBox comboBox2;
+        private ComboBox cmbAction;
         private Label label5;
-        private FlowLayoutPanel flowLayoutPanel1;
-        private CheckBox checkBox1;
-        private CheckBox checkBox2;
-        private CheckBox checkBox3;
-        private CheckBox checkBox4;
-        private CheckBox checkBox5;
-        private CheckBox checkBox6;
-        private CheckBox checkBox7;
-        private CheckBox checkBox8;
-        private CheckBox checkBox11;
-        private Button button2;
-        private Label label6;
+        private FlowLayoutPanel pnlExts;
+        private CheckBox chkExtMp4;
+        private CheckBox chkExtM4v;
+        private CheckBox chkExtMov;
+        private CheckBox chkExtAvi;
+        private CheckBox chkExtMkv;
+        private CheckBox chkExtWmv;
+        private CheckBox chkExtFlv;
+        private CheckBox chkExtWebm;
+        private CheckBox chkAllExts;
+        private Button btnRun;
+        private Label lblStatus;
+        private CheckBox chkExtM2ts;
+        private CheckBox chkExt3gp;
     }
 }
+    
