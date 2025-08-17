@@ -25,7 +25,7 @@ namespace AppMoverVIdeos
             cmbMode.Items.AddRange(new object[] { "Simular (dry-run)", "Ejecutar (real)" });
             cmbMode.SelectedIndex = 0; // por defecto simular
 
-            // Acción (combo)
+            // AcciÃ³n (combo)
             cmbAction.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbAction.Items.Clear();
             cmbAction.Items.AddRange(new object[] { "Mover", "Copiar" });
@@ -47,7 +47,7 @@ namespace AppMoverVIdeos
         private void btnBrowseRoot_Click(object sender, EventArgs e)
         {
             using var dlg = new FolderBrowserDialog();
-            dlg.Description = "Selecciona el directorio raíz a procesar"; // Abrimos el cuadro de diálogo par seleccionar la carpeta raíz
+            dlg.Description = "Selecciona el directorio raÃ­z a procesar"; // Abrimos el cuadro de diÃ¡logo par seleccionar la carpeta raÃ­z
             dlg.ShowNewFolderButton = false;
             if (dlg.ShowDialog(this) == DialogResult.OK)
                 txtRoot.Text = dlg.SelectedPath;
@@ -68,11 +68,11 @@ namespace AppMoverVIdeos
 
             try
             {
-                // Validaciones y parámetros
+                // Validaciones y parÃ¡metros
                 string root = txtRoot.Text.Trim();
                 if (string.IsNullOrWhiteSpace(root) || !Directory.Exists(root))
                 {
-                    MessageBox.Show(this, "Selecciona una carpeta origen válida.", "Error",
+                    MessageBox.Show(this, "Selecciona una carpeta origen vÃ¡lida.", "Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
@@ -99,7 +99,7 @@ namespace AppMoverVIdeos
                 var selectedExts = GetSelectedExtensions();
                 if (selectedExts.Count == 0)
                 {
-                    MessageBox.Show(this, "Selecciona al menos una extensión.", "Aviso",
+                    MessageBox.Show(this, "Selecciona al menos una extensiÃ³n.", "Aviso",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
@@ -111,14 +111,14 @@ namespace AppMoverVIdeos
                 string stamp = DateTime.Now.ToString("yyyyMMdd-HHmmss");
                 string logPath = Path.Combine(logDir, $"video_extract_{(dryRun ? "dryrun_" : "")}{stamp}.log");
 
-                // Evitar recursión si el destino está dentro del root
+                // Evitar recursiÃ³n si el destino estÃ¡ dentro del root
                 string? avoidDir = null; //Con ? (nullable reference types habilitado) - el compilador sabe que la variable puede ser null (no avisa)
                 try
                 {
-                    var rel = Path.GetRelativePath(root, destRoot); //me decuelve la ruta parcial de inicio a destino (normalmente será 00_SOLO_VIDEOS)
+                    var rel = Path.GetRelativePath(root, destRoot); //me decuelve la ruta parcial de inicio a destino (normalmente serÃ¡ 00_SOLO_VIDEOS)
                     if (!rel.StartsWith(".."))
                     {
-                        avoidDir = Path.GetFullPath(destRoot); //Este directorio lo omitiré de la búsqueda (es donde dejaré los videos)
+                        avoidDir = Path.GetFullPath(destRoot); //Este directorio lo omitirÃ© de la bÃºsqueda (es donde dejarÃ© los videos)
                     }
                 }
                 catch { }
@@ -126,11 +126,11 @@ namespace AppMoverVIdeos
                 int found = 0, done = 0;
                 var sbFile = new StringBuilder();
 
-                void Log(string line) => sbFile.AppendLine(line); // =>  equivalente a { return ...; } pero en una sola línea).
+                void Log(string line) => sbFile.AppendLine(line); // =>  equivalente a { return ...; } pero en una sola lÃ­nea).
 
                 Log($"# Origen: {root}");
                 Log($"# Destino: {destRoot}");
-                Log($"# Modo: {(dryRun ? "DRY-RUN" : "REAL")}  |  Acción: {(doCopy ? "COPIAR" : "MOVER")}");
+                Log($"# Modo: {(dryRun ? "DRY-RUN" : "REAL")}  |  AcciÃ³n: {(doCopy ? "COPIAR" : "MOVER")}");
                 Log($"# Extensiones: {string.Join(", ", selectedExts.OrderBy(x => x))}");
                 Log($"# Fecha/hora: {DateTime.Now:yyyy-MM-dd HH:mm:ss}");
                 Log("");
@@ -153,7 +153,15 @@ namespace AppMoverVIdeos
                         found++;
 
                         string relDir = Path.GetRelativePath(root, Path.GetDirectoryName(src)!);
-                        string dstDir = Path.Combine(destRoot, relDir); //Directorio igual al que proviene... deberé crearlo
+                        // Solo mantenemos el primer nivel de directorios respecto al origen
+                        string dstDir;
+                        if (string.IsNullOrEmpty(relDir) || relDir == ".")
+                            dstDir = destRoot;
+                        else
+                        {
+                            string firstLevel = relDir.Split(Path.DirectorySeparatorChar, StringSplitOptions.RemoveEmptyEntries)[0];
+                            dstDir = Path.Combine(destRoot, firstLevel);
+                        }
                         string dst = Path.Combine(dstDir, Path.GetFileName(src)); // nuevo nombre del archivo (ruta completa)
 
                         string action = doCopy ? "COPIAR" : "MOVER";
@@ -161,7 +169,7 @@ namespace AppMoverVIdeos
 
                         if (dryRun) continue;
                         
-                        //Aquí solo entrará cuando estemos en Real (no en un dry-run)
+                        //AquÃ­ solo entrarÃ¡ cuando estemos en Real (no en un dry-run)
                         try
                         {
                             Directory.CreateDirectory(dstDir);
@@ -180,12 +188,12 @@ namespace AppMoverVIdeos
                 });
 
                 Log("");
-                Log($"# Total vídeos detectados: {found}");
+                Log($"# Total vÃ­deos detectados: {found}");
                 Log($"# Total {(dryRun ? "operaciones simuladas" : "archivos procesados")}: {done}");
-                Log("FIN DE LOG. CREADO POR Ricardo Serón Agosto 2025");
+                Log("FIN DE LOG. CREADO POR Ricardo SerÃ³n Agosto 2025");
                 File.WriteAllText(logPath, sbFile.ToString(), Encoding.UTF8);
 
-                lblStatus.Text = $"OK · Detectados: {found} · {(dryRun ? "TODO SIMULADO" : $"Procesados: {done}")} \r\nLog: {logPath}";
+                lblStatus.Text = $"OK Â· Detectados: {found} Â· {(dryRun ? "TODO SIMULADO" : $"Procesados: {done}")} \r\nLog: {logPath}";
             }
             finally
             {
@@ -253,7 +261,7 @@ namespace AppMoverVIdeos
                     return;
                 }
 
-                // obtener el último archivo de log
+                // obtener el Ãºltimo archivo de log
                 var lastLog = new DirectoryInfo(logsDir)
                     .GetFiles("*.log", SearchOption.TopDirectoryOnly)
                     .OrderByDescending(f => f.LastWriteTime)
