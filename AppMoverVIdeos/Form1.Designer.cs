@@ -278,10 +278,10 @@
             label6.AutoSize = true;
             label6.Location = new Point(474, 224);
             label6.Name = "label6";
-            label6.Size = new Size(50, 15);
+            label6.Size = new Size(53, 15);
             label6.TabIndex = 14;
             label6.Tag = "lblStatus";
-            label6.Text = "ESTADO";
+            label6.Text = "ESTADO:";
             // 
             // Form1
             // 
